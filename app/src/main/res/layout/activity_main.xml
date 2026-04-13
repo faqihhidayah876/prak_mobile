@@ -28,7 +28,7 @@
         android:text="Pertemuan 4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn4" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLima" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -60,11 +60,11 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
-        android:id="@+id/btn4"
+        android:id="@+id/btnLima"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Pertemuan 3"
+        android:text="Pertemuan 5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
