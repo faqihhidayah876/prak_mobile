@@ -1,6 +1,9 @@
 package com.example.faqihapps.pertemuan_5
 
 import android.os.Bundle
+import android.view.View
+import android.webkit.WebChromeClient
+import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -11,11 +14,13 @@ import com.example.faqihapps.databinding.ActivityFifthBinding
 import com.example.faqihapps.databinding.ActivityWebViewBinding
 
 class WebViewActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityWebViewBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        var binding = ActivityWebViewBinding.inflate(layoutInflater)
+        binding = ActivityWebViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -32,11 +37,8 @@ class WebViewActivity : AppCompatActivity() {
 
         binding.webView.webViewClient = WebViewClient()
         binding.webView.settings.javaScriptEnabled = true
-        binding.webView.loadUrl("https://merdeka.com")
+        binding.webView.loadUrl("https://sahaja-chatbot-ai.alwaysdata.net")
 
-        binding.webView.webViewClient = WebViewClient()
-        binding.webView.settings.javaScriptEnabled = true
-        binding.webView.loadUrl("https://merdeka.com")
 
         // Agar Toolbar hide/show saat scroll web
         binding.webView.setOnScrollChangeListener { _, _, scrollY, _, oldScrollY ->
@@ -46,9 +48,18 @@ class WebViewActivity : AppCompatActivity() {
                 binding.appBar.setExpanded(true, true) // tampilkan
             }
         }
+        binding.webView.webChromeClient = object : WebChromeClient() {
+            override fun onProgressChanged(view: WebView?, newProgress: Int) {
+                binding.progressBar.progress = newProgress
+                if (newProgress == 100) {
+                    binding.progressBar.visibility = View.GONE
+                } else {
+                    binding.progressBar.visibility = View.VISIBLE
+                }
+            }
+        }
     }
     override fun onBackPressed() {
-        var binding = ActivityWebViewBinding.inflate(layoutInflater)
         if (binding.webView.canGoBack()) {
             binding.webView.goBack() // Kembali ke halaman web sebelumnya
         } else {

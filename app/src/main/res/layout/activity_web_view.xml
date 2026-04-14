@@ -20,13 +20,19 @@
             android:layout_height="?attr/actionBarSize"
             app:titleTextColor="@android:color/white"
             app:layout_scrollFlags="scroll|enterAlways"/>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:max="100" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <WebView
         android:id="@+id/webView"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

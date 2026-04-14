@@ -37,6 +37,14 @@ class FifthActivity : AppCompatActivity() {
             val intent = Intent(this, WebViewActivity::class.java)
             startActivity(intent)
         }
+        binding.nestedScrollView.setOnScrollChangeListener { _, _, scrollY, _, oldScrollY ->
+            // Hapus kondisi .isShown agar sistem selalu memaksa animasi berjalan
+            if (scrollY > oldScrollY) {
+                binding.fabAction.hide() // Scroll ke bawah -> Sembunyikan
+            } else if (scrollY < oldScrollY) {
+                binding.fabAction.show() // Scroll ke atas -> Tampilkan
+            }
+        }
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
