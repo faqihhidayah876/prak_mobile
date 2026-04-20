@@ -39,5 +39,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, FifthActivity::class.java)
             startActivity(intent)
         }
+        binding.btnLogout.setOnClickListener {
+            val intent = Intent(this, AuthActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
