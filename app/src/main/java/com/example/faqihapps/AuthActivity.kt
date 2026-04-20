@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.faqihapps.databinding.ActivityAuthBinding
 import com.example.faqihapps.pertemuan_3.ThirdResultActivity
+import androidx.core.content.edit
 
 class AuthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAuthBinding
@@ -22,16 +23,21 @@ class AuthActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
+
         binding.btnSubmit.setOnClickListener {
-            //Mengambil value dari inputNama dan menampilkan di Logcat
-//            val nomor = binding.inputNoTujuan.text
-//            Toast.makeText(this, "Pesan berhasil dikirim ke $nomor", Toast.LENGTH_SHORT).show()
             val username = binding.username.text.toString().trim()
             val password = binding.password.text.toString().trim()
-
             if (username == password) {
+
+                sharedPref.edit {
+                    putBoolean("isLogin", true)
+                    putString("username", username)
+                }
+
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
+                finish()
             } else {
                 AlertDialog.Builder(this)
                     .setTitle("Login Gagal")
