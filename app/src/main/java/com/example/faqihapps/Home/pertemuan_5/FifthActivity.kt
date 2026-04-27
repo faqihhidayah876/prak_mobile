@@ -1,4 +1,4 @@
-package com.example.faqihapps.pertemuan_5
+package com.example.faqihapps.Home.pertemuan_5
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +11,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.faqihapps.R
 import com.example.faqihapps.databinding.ActivityFifthBinding
-import com.example.faqihapps.pertemuan_3.ThirdResultActivity
 
 class FifthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFifthBinding

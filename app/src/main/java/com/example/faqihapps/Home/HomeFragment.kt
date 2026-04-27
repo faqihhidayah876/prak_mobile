@@ -1,37 +1,45 @@
-package com.example.faqihapps
+package com.example.faqihapps.Home
 
+import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.faqihapps.databinding.ActivityMainBinding
+import com.example.faqihapps.AuthActivity
 import com.example.faqihapps.Home.pertemuan_2.SecondActivity
 import com.example.faqihapps.Home.pertemuan_3.ThirdActivity
 import com.example.faqihapps.Home.pertemuan_4.FourthActivity
 import com.example.faqihapps.Home.pertemuan_5.FifthActivity
 import com.example.faqihapps.Home.pertemuan_7.SevenActivity
+import com.example.faqihapps.R
+import com.example.faqihapps.databinding.FragmentHomeBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
+class HomeFragment : Fragment() {
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        val sharedPref = requireContext().getSharedPreferences("user_pref", MODE_PRIVATE)
+
+        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
+        (requireActivity() as AppCompatActivity).supportActionBar?.apply {
+            title = "Home"
         }
 
-        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
-
         binding.btnKirim.setOnClickListener {
-            val intent = Intent(this, FourthActivity::class.java)
+            val intent = Intent(requireContext(), FourthActivity::class.java)
 
             /*tambahkan bagian berikut*/
             intent.putExtra("name", "Politeknik Caltex Riau")
@@ -41,23 +49,23 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.btnLima.setOnClickListener {
-            val intent = Intent(this, FifthActivity::class.java)
+            val intent = Intent(requireContext(), FifthActivity::class.java)
             startActivity(intent)
         }
         binding.btn7.setOnClickListener {
-            val intent = Intent(this, SevenActivity::class.java)
+            val intent = Intent(requireContext(), SevenActivity::class.java)
             startActivity(intent)
         }
         binding.btn2.setOnClickListener {
-            val intent = Intent(this, SecondActivity::class.java)
+            val intent = Intent(requireContext(), SecondActivity::class.java)
             startActivity(intent)
         }
         binding.btn3.setOnClickListener {
-            val intent = Intent(this, ThirdActivity::class.java)
+            val intent = Intent(requireContext(), ThirdActivity::class.java)
             startActivity(intent)
         }
         binding.btnLogout.setOnClickListener {
-            MaterialAlertDialogBuilder(this)
+            MaterialAlertDialogBuilder(requireContext())
                 .setTitle("Konfirmasi")
                 .setMessage("Apakah Anda yakin ingin keluar?")
                 .setPositiveButton("Ya") { dialog, _ ->
@@ -67,9 +75,9 @@ class MainActivity : AppCompatActivity() {
 
                     dialog.dismiss()
 
-                    val intent = Intent(this, AuthActivity::class.java)
+                    val intent = Intent(requireContext(), AuthActivity::class.java)
                     startActivity(intent)
-                    finish()
+                    requireActivity().finish()
                 }
                 .setNegativeButton("Batal") { dialog, _ ->
                     dialog.dismiss()

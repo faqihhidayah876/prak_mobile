@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.faqihapps.databinding.ActivityAuthBinding
-import com.example.faqihapps.pertemuan_3.ThirdResultActivity
 import androidx.core.content.edit
 
 class AuthActivity : AppCompatActivity() {
@@ -35,7 +34,7 @@ class AuthActivity : AppCompatActivity() {
                     putString("username", username)
                 }
 
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, BaseActivity::class.java)
                 startActivity(intent)
                 finish()
             } else {

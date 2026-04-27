@@ -1,4 +1,4 @@
-package com.example.faqihapps.pertemuan_7
+package com.example.faqihapps.Home.pertemuan_7
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
