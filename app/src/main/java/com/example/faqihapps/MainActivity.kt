@@ -10,9 +10,12 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.faqihapps.databinding.ActivityMainBinding
 import com.example.faqihapps.databinding.ActivityThirdBinding
+import com.example.faqihapps.pertemuan_2.SecondActivity
+import com.example.faqihapps.pertemuan_3.ThirdActivity
 import com.example.faqihapps.pertemuan_3.ThirdResultActivity
 import com.example.faqihapps.pertemuan_4.FourthActivity
 import com.example.faqihapps.pertemuan_5.FifthActivity
+import com.example.faqihapps.pertemuan_7.SevenActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class MainActivity : AppCompatActivity() {
@@ -43,6 +46,18 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnLima.setOnClickListener {
             val intent = Intent(this, FifthActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btn7.setOnClickListener {
+            val intent = Intent(this, SevenActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btn2.setOnClickListener {
+            val intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btn3.setOnClickListener {
+            val intent = Intent(this, ThirdActivity::class.java)
             startActivity(intent)
         }
         binding.btnLogout.setOnClickListener {
