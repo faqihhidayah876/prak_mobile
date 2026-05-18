@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.example.faqihapps.AuthActivity
+import com.example.faqihapps.Home.pertemuan_10.TenthActivity
 import com.example.faqihapps.Home.pertemuan_2.SecondActivity
 import com.example.faqihapps.Home.pertemuan_3.ThirdActivity
 import com.example.faqihapps.Home.pertemuan_4.FourthActivity
@@ -62,6 +63,10 @@ class HomeFragment : Fragment() {
         }
         binding.btn3.setOnClickListener {
             val intent = Intent(requireContext(), ThirdActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btn4.setOnClickListener {
+            val intent = Intent(requireContext(), TenthActivity::class.java)
             startActivity(intent)
         }
         binding.btnLogout.setOnClickListener {

@@ -37,8 +37,9 @@
         android:layout_height="wrap_content"
         android:text="Pertemuan 4"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn3" />
+        app:layout_constraintTop_toBottomOf="@+id/btn2" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -75,13 +76,15 @@
         android:layout_height="wrap_content"
         android:text="Pertemuan 5"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnKirim" />
+        app:layout_constraintTop_toBottomOf="@+id/btn3" />
 
     <Button
         android:id="@+id/btnLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
         android:backgroundTint="@color/black"
         android:text="Logout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,8 +97,9 @@
         android:layout_height="wrap_content"
         android:text="Pertemuan 7"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLima" />
+        app:layout_constraintTop_toBottomOf="@+id/btnKirim" />
 
     <Button
         android:id="@+id/btn2"
@@ -103,6 +107,7 @@
         android:layout_height="wrap_content"
         android:text="Pertemuan 2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/switch1" />
 
@@ -112,7 +117,18 @@
         android:layout_height="wrap_content"
         android:text="Pertemuan 3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn2" />
+        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+
+    <Button
+        android:id="@+id/btn4"
+        android:layout_width="132dp"
+        android:layout_height="51dp"
+        android:text="Pertemuan 10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.853"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLima" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
