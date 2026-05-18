@@ -17,6 +17,9 @@
             android:name=".Home.pertemuan_10.TenthActivity"
             android:exported="false" />
         <activity
+            android:name=".Home.pertemuan_9.NinthActivity"
+            android:exported="false" />
+        <activity
             android:name=".BaseActivity"
             android:exported="false" />
         <activity

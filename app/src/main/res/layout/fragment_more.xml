@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,24 +7,27 @@
     tools:context=".More.MoreFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:subtitleTextColor="@android:color/white"
-        app:titleTextColor="@android:color/white" />
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-    <TextView
+        <!-- Toolbar sekarang berada di dalam AppBarLayout -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layo_scrollFlags="scroll|enterAlways"
+            app:titleTextColor="@android:color/white" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ListView
+        android:id="@+id/listViewItems"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fontFamily="@font/font_open_sans"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:text="Ini Fragment More" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-</FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

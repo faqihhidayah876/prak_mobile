@@ -15,6 +15,7 @@ import com.example.faqihapps.Home.pertemuan_3.ThirdActivity
 import com.example.faqihapps.Home.pertemuan_4.FourthActivity
 import com.example.faqihapps.Home.pertemuan_5.FifthActivity
 import com.example.faqihapps.Home.pertemuan_7.SevenActivity
+import com.example.faqihapps.Home.pertemuan_9.NinthActivity
 import com.example.faqihapps.R
 import com.example.faqihapps.databinding.FragmentHomeBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -67,6 +68,10 @@ class HomeFragment : Fragment() {
         }
         binding.btn4.setOnClickListener {
             val intent = Intent(requireContext(), TenthActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btn4.setOnClickListener {
+            val intent = Intent(requireContext(), NinthActivity::class.java)
             startActivity(intent)
         }
         binding.btnLogout.setOnClickListener {
