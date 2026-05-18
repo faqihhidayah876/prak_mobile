@@ -66,7 +66,7 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), ThirdActivity::class.java)
             startActivity(intent)
         }
-        binding.btn4.setOnClickListener {
+        binding.btn5.setOnClickListener {
             val intent = Intent(requireContext(), TenthActivity::class.java)
             startActivity(intent)
         }
