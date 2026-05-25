@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.faqihapps.AuthActivity
 import com.example.faqihapps.Home.pertemuan_10.TenthActivity
 import com.example.faqihapps.Home.pertemuan_2.SecondActivity
@@ -17,8 +18,10 @@ import com.example.faqihapps.Home.pertemuan_5.FifthActivity
 import com.example.faqihapps.Home.pertemuan_7.SevenActivity
 import com.example.faqihapps.Home.pertemuan_9.NinthActivity
 import com.example.faqihapps.R
+import com.example.faqihapps.data.api.CatFactApiClient
 import com.example.faqihapps.databinding.FragmentHomeBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -69,6 +72,11 @@ class HomeFragment : Fragment() {
         binding.btn5.setOnClickListener {
             val intent = Intent(requireContext(), TenthActivity::class.java)
             startActivity(intent)
+            loadCatFact()
+        }
+
+        binding.btnRefresh.setOnClickListener {
+            loadCatFact()
         }
         binding.btn4.setOnClickListener {
             val intent = Intent(requireContext(), NinthActivity::class.java)
@@ -93,6 +101,16 @@ class HomeFragment : Fragment() {
                     dialog.dismiss()
                 }
                 .show()
+        }
+    }
+    private fun loadCatFact() {
+        lifecycleScope.launch {
+            try {
+                val response = CatFactApiClient.apiService.getCatFact()
+                binding.tvCatFact.text = "\"${response.fact}\""
+            } catch (e: Exception) {
+                binding.tvCatFact.text = "Gagal mengambil fakta kucing."
+            }
         }
     }
 }
